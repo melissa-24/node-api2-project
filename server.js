@@ -1,17 +1,15 @@
-const express = require("express");
-const cors = require("cors");
-
-const postsRoute = require("./posts/postsRoute");
+const express = require('express');
+const postsRoute = require('./posts/postsRoute.js');
 
 const server = express();
 server.use(express.json());
-server.use(cors());
 
-server.use("/api/posts", postsRoute);
+server.use('/api/posts', postsRoute)
 
-
-server.get('/', (req, res) => {
-    res.send(`Server is up and running`);
+server.use('/', (req, res) => {
+    res.send(`
+        <h2>Server is Running</h2>
+    `);
 });
 
 module.exports = server;
